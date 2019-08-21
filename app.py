@@ -26,7 +26,7 @@ def success():
     qry = db_session.query(Items)
     results = qry.all()
 
-    return str(results)
+    return render_template('get_all.html', inspect=results)
   
 
 if __name__ == '__main__':

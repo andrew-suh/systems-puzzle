@@ -1,0 +1,27 @@
+
+{% block title %}All Items{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+
+<table class="patient-view-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in inspect %}
+    <tr>
+      <td class="property-value-col">{{ i.name }}</td>
+      <td class="property-value-col">{{ i.quantity }}</td>
+      <td class="property-value-col">{{ i.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
