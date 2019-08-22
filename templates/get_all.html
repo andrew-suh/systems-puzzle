@@ -1,10 +1,16 @@
+{% extends 'base.html' %}
 
 {% block title %}All Items{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
 
 {% block body %}
-
+<!-- Added a table to output  -->
 <table class="Items-table">
   <thead>
     <tr>
