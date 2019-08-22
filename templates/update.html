@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Updating{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1> Updating the Index! </h1>
+    <h2> Please enter the changes for the item. </h2>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.name.label }} {{ form.name(size=20) }}
+        {{ form.quantity.label }} {{ form.quantity(size=4) }}
+        {{ form.description.label }} {{ form.description(size=4) }}
+        <input type="submit" value="Update">
+    </form>
+
+    <b><a href={{ url_for("success") }}>List All Items</a></b>
+{% endblock %}
