@@ -57,8 +57,6 @@ def update(id):
     to_change = db_session.query(Items).filter_by(id=id).first()
     if form.validate_on_submit():
         try:
-            with open("test1.txt", 'w') as fo:
-                fo.write(str(form.__dict__.keys()))
             for k in to_change.__dict__.keys():
                 if k is 'date_added':
                     to_change.date_added = datetime.datetime.now()
@@ -68,10 +66,6 @@ def update(id):
                     pass
                 else:
                     setattr(to_change,k, getattr(form,k).data)
-            # to_change.name = form.name.data,
-            # to_change.quantity = form.quantity.data,
-            # to_change.description = form.description.data,
-            # to_change.date_added = datetime.datetime.now(),
             db_session.commit()
             return redirect(url_for('success'))
         except:
