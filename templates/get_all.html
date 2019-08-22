@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-<!-- Added a table to output  -->
+<!-- Added a table to make output prettier-->
 <table class="Items-table">
   <thead>
     <tr>
@@ -28,9 +28,11 @@
       <td class="property-value-col">{{ i.quantity }}</td>
       <td class="property-value-col">{{ i.description }}</td>
       <td>
+        <!-- Added a delete link, reedirects back to here when deleted -->
           <a href="{{ url_for('delete', id=i.id) }}">Delete</a>
       </td>
       <td>
+        <!-- Added an update link that goes to a new page to update based on the passed id-->
           <a href="{{ url_for('update', id=i.id) }}">Update</a>
       </td>
     </tr>
@@ -38,5 +40,6 @@
   </tbody>
 </table>
 
+<!-- Go back to home page -->
 <b><a href={{ url_for("add_item") }}>Go to Home</a></b>
 {% endblock %}
